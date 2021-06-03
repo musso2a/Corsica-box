@@ -1,0 +1,49 @@
+
+
+
+
+/*  Home  */
+
+#call-to-action {
+    /*background-color: #718096;*/
+    background-image: url("../public/img/montagne.jpg");
+    background-color: #4a5568;
+}
+
+
+/*  Actualités  */
+
+#actuality-img {}
+
+/*  Nav-bar  */
+
+#nav-bar {
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+
+/*  Footer  */
+
+#footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+ .marque {
+     background-color: #708090;
+ }
+
+
+/*  Faq  */
+
+#faq-list {
+
+
+}
+
+
+#faq-list-2 {
+    padding: 0;
+    width: 100%;
+}
