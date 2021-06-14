@@ -12,7 +12,7 @@
 
 </head>
 <body>
-<nav class="flex items-center justify-between flex-wrap bg-white p-6 fixed w-full z-10 top-0" id="nav-bar">
+<nav class="flex items-center justify-between flex-wrap bg-white fixed p-6 w-full z-20 top-0" id="nav-bar">
     <div class="flex items-center flex-shrink-0 text-black mr-6">
         <a class="text-grey no-underline hover:text-grey hover:no-underline" href="/">
             <span class="text-2xl pl-2"><i class="em em-grinning"></i> CorsicaBox</span>
@@ -36,9 +36,17 @@
             <li class="mr-3">
                 <a class="inline-block py-2 px-4 text-black no-underline" href="/contact">Contact</a>
             </li>
+            @if (Route::has('login'))
             <li class="mr-3">
-                <a class="inline-block py-2 px-4 text-black no-underline" href="#">Connexion</a>
+                @auth
+                <a class="inline-block py-2 px-4 text-black no-underline" href="{{ url('/dashboard') }}">Mon Compte</a>
+                @else
+
+                <a class="inline-block py-2 px-4 text-black no-underline" href="{{ route('register') }}">Connexion</a>
+                @endauth
+
             </li>
+                @endif
         </ul>
         <div id="search-toggle" class="search-icon cursor-pointer pl-6">
             <svg class="fill-current pointer-events-none text-grey-darkest w-4 h-4 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

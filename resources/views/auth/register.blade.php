@@ -1,9 +1,15 @@
+<link rel="stylesheet" href="../css/app.css">
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+
+@extends('layouts/navigation')
+
+<section class="h-full" id="register-page">
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+{{--            <a href="/">--}}
+{{--                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />--}}
+{{--            </a>--}}
         </x-slot>
 
         <!-- Validation Errors -->
@@ -14,10 +20,16 @@
 
             <!-- Name -->
             <div>
-                <x-label for="name" :value="__('Name')" />
+                <x-label for="name" :value="__('Nom')" />
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
+
+                <!-- Surname --><div>
+                    <x-label for="name" :value="__('Prenom')" />
+
+                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                </div>
 
             <!-- Email Address -->
             <div class="mt-4">
@@ -28,7 +40,7 @@
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('Mot de passe')" />
 
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -38,7 +50,7 @@
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-label for="password_confirmation" :value="__('Confirmer le mot de passe')" />
 
                 <x-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"
@@ -47,7 +59,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('Deja membre ?') }}
                 </a>
 
                 <x-button class="ml-4">
@@ -57,3 +69,6 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+</section>
+
+@extends('layouts/footer')

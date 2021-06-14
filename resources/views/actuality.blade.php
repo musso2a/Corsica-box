@@ -11,12 +11,13 @@
 </head>
 <body>
 @extends('layouts/navigation')
-<article>
-
+<article class="h-screen">
+    <br>
+    <br>
     <div class="max-w-screen-xl px-4 py-16 mx-auto space-y-8 sm:px-6 lg:px-8">
 
         <div class="aspect-w-16 aspect-h-9" id="actuality-img">
-            <img class="object-cover " src="https://images.unsplash.com/photo-1611095786283-c2f965646ef1?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80" alt="">
+            <img class="object-fill object-center" src="https://i.ibb.co/k18nd39/montagne.jpg" alt="">
         </div>
         <div class="grid items-start grid-cols-1 gap-12 mt-12 lg:grid-cols-3">
             <div class="flex items-center space-x-3">

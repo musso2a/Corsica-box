@@ -1,25 +1,119 @@
 
 
+@font-face {
+    font-family: 'archiaregular';
+    src: url('./assets/archia-regular-webfont.eot');
+    src: url('./assets/archia-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('./assets/archia-regular-webfont.woff2') format('woff2'),
+    url('./assets/archia-regular-webfont.woff') format('woff'),
+    url('./assets/archia-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*  ScrollBar  */
+/*!* width *!*/
+/*::-webkit-scrollbar {*/
+/*    width: 10px;*/
+/*}*/
+
+/*!* Track *!*/
+/*::-webkit-scrollbar-track {*/
+/*    background: #ffffff;*/
+/*}*/
+
+/*!* Handle *!*/
+/*::-webkit-scrollbar-thumb {*/
+/*    background: #000000;*/
+/*}*/
+
+/*!* Handle on hover *!*/
+/*::-webkit-scrollbar-thumb:hover {*/
+/*    background: #383737;*/
+/*}*/
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(0deg, #aca6ad 14%,#030305 73%);
+    border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(296deg, #c7ceff 14%,#a3a3a3 64%);
+}
+::-webkit-scrollbar-track{
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: inset 7px 10px 18px #f0f0f0;
+}
+
+
+
 
 
 /*  Home  */
 
 #call-to-action {
     /*background-color: #718096;*/
-    background-image: url("../public/img/montagne.jpg");
-    background-color: #4a5568;
+    background-image: url("./img/montagne.jpg");
+    background-size: cover;
+    background-color: white;
 }
 
 
+/*  Services  */
+
+#card-left {
+    border: 1px solid black;
+    padding-top: 0;
+}
+#img-left {
+    /*background-image: url("./img/niolu.jpg");*/
+}
+
+#card-center {
+    padding-top: 0;
+    padding-bottom: 10px;
+    border: 8px solid #000000;
+}
+
+#button-card-center {
+    margin: 0;
+
+}
+#description-center {
+
+}
+
+#card-right {
+    border: 1px solid black;
+    padding-top: 0;
+}
+
+
+/*  Produit */
+
+#select-sub {
+    margin-top: 100px;
+}
+#product-img {
+    padding-bottom: 50px;
+}
+
 /*  Actualités  */
 
-#actuality-img {}
+#news-card {
+    border-bottom: black 1px solid;
+}
 
 /*  Nav-bar  */
 
 #nav-bar {
     color: black;
     border-bottom: 2px solid black;
+    /*margin-bottom: 5rem;*/
 }
 
 
@@ -35,6 +129,15 @@
  }
 
 
+/*  Register  */
+
+#register-page {
+    background-image: url("./img/plage.jpg");
+    background-size: cover;
+    background-color: white;
+}
+
+
 /*  Faq  */
 
 #faq-list {
@@ -46,4 +149,11 @@
 #faq-list-2 {
     padding: 0;
     width: 100%;
+}
+
+
+/*  Admin  */
+
+#sidebar-admin {
+    border-right: #1a202c 2px solid;
 }

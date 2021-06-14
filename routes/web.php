@@ -33,12 +33,20 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/product', function () {
+    return view('product');
+});
+
 Route::get('/faq', function () {
     return view('faq');
 });
 
 Route::get('/actualite', function () {
     return view('actuality');
+});
+
+Route::get('/admin', function () {
+    return view('admin');
 });
 
 
