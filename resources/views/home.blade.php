@@ -24,7 +24,7 @@
     <p class="mt-2 text-3xl font-bold text-gray-900 sm:text-5xl">Bienvenue chez CorsicaBox !</p>
     <div class="items-center justify-center mt-8 sm:flex">
         <div class="max-w-md p-2 mx-auto text-center">
-            <a class="relative inline-block group" href="">
+            <a class="relative inline-block group" href="/services">
 
                 <span class="relative inline-block px-5 py-3 font-bold tracking-widest text-black uppercase border-2 border-current">Decouvrir nos box</span>
             </a>
@@ -46,7 +46,7 @@
 {{--        </div>--}}
 {{--    </div>--}}
 <br>
-<section>
+<section class="overflow-auto">
     <br>
     <div class="flex flex-col items-center leading-7 text-center text-gray-900 border-0 border-gray-200">
         <h2 class="box-border m-0 text-2xl font-semibold leading-tight tracking-tight text-black border-solid sm:text-4xl md:text-5xl">

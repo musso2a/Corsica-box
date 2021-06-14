@@ -24,6 +24,7 @@
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
+                <br>
 
                 <!-- Surname --><div>
                     <x-label for="name" :value="__('Prenom')" />
@@ -63,7 +64,7 @@
                 </a>
 
                 <x-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('Inscription') }}
                 </x-button>
             </div>
         </form>

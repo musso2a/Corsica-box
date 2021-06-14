@@ -12,7 +12,7 @@
 <body>
 @extends('layouts/navigation')
 <section class="relative flex flex-wrap">
-    <div class="flex w-full px-4 py-12 lg:w-1/2 sm:px-6 lg:px-8 sm:py-16 lg:py-24 lg:h-screen " id="faq-list">
+    <div class="flex w-full px-4 py-12 lg:w-1/2 sm:px-6 lg:px-8 sm:py-16 lg:py-24 lg:h-screen overflow-auto" id="faq-list">
         <div class="max-w-lg lg:text-left lg:pr-12" id="faq-list-2">
                 <div class="max-w-screen-xl px-4 py-16  sm:px-6 lg:px-8">
                     <ul class="space-y-10">
@@ -66,7 +66,7 @@
         </div>
     </div>
     <div class="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-auto">
-        <img class="absolute inset-0 object-cover w-full h-full" src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" alt="">
+        <img class="absolute inset-0 object-cover w-full h-full" src="https://i.ibb.co/HXhw02L/plage.jpg" alt="">
     </div>
 </section>
 

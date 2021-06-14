@@ -12,26 +12,10 @@
 
 }
 
-/*  ScrollBar  */
-/*!* width *!*/
-/*::-webkit-scrollbar {*/
-/*    width: 10px;*/
-/*}*/
+a {
+    text-decoration: underline;
+}
 
-/*!* Track *!*/
-/*::-webkit-scrollbar-track {*/
-/*    background: #ffffff;*/
-/*}*/
-
-/*!* Handle *!*/
-/*::-webkit-scrollbar-thumb {*/
-/*    background: #000000;*/
-/*}*/
-
-/*!* Handle on hover *!*/
-/*::-webkit-scrollbar-thumb:hover {*/
-/*    background: #383737;*/
-/*}*/
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;

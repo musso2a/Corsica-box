@@ -15,7 +15,8 @@
 <nav class="flex items-center justify-between flex-wrap bg-white fixed p-6 w-full z-20 top-0" id="nav-bar">
     <div class="flex items-center flex-shrink-0 text-black mr-6">
         <a class="text-grey no-underline hover:text-grey hover:no-underline" href="/">
-            <span class="text-2xl pl-2"><i class="em em-grinning"></i> CorsicaBox</span>
+{{--            <span class="text-2xl pl-2"><i class="em em-grinning"></i> CorsicaBox</span>--}}
+            <img src="https://i.ibb.co/jRGvMvc/logo.png" alt="" class="h-12">
         </a>
     </div>
 

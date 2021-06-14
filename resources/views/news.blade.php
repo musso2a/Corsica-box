@@ -11,15 +11,21 @@
 </head>
 <body>
 @extends('layouts/navigation')
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="flex flex-col items-center leading-7 text-center text-gray-900 border-0 border-gray-200">
+    <h2 class="box-border m-0 text-2xl font-semibold leading-tight tracking-tight text-black border-solid sm:text-4xl md:text-5xl">
+        Actualités
+    </h2>
 
+</div>
 <section class="h-screen overflow-auto">
-    <div class="flex flex-col items-center leading-7 text-center text-gray-900 border-0 border-gray-200">
-        <h2 class="box-border m-0 text-2xl font-semibold leading-tight tracking-tight text-black border-solid sm:text-4xl md:text-5xl">
-            Actualités
-        </h2>
 
-    </div>
-    <div class="pt-24 pb-12 bg-white">
+    <div class="pt-6 pb-12 bg-white">
         <br>
         <div id="card" class="">
             <!-- container for all cards -->
@@ -35,7 +41,7 @@
                     <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
                         <h3 class="font-semibold text-lg leading-tight truncate">Titre</h3>
                         <p class="mt-2">
-                            Voici une nouvelle box du mois c'est incroyable blablabla....<a href="#">Lire la suite</a>
+                            Voici une nouvelle box du mois c'est incroyable blablabla....<a href="/actualite">Lire la suite</a>
                         </p>
                         <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
                             &bull; 02/02/02
