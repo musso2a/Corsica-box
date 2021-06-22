@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-//Route::get('/', 'App\Http\Controllers\NewsController@showHome');
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'App\Http\Controllers\NewsController@showHome');
+Route::get('/', [\App\Http\Controllers\NewsController::class, 'showHome']);
+//Route::get('/', function () {
+//    return view('home');
+//});
 
 Route::get('/services', 'App\Http\Controllers\NewsController@showServices' );
 
@@ -35,7 +36,8 @@ Route::get('/product', function () {
 
 
 Route::get('/actualite/{id}', 'App\Http\Controllers\NewsController@showNew');
-Route::get('/actualites', 'App\Http\Controllers\UsersController@showNews');
+//Route::get('/actualites', 'App\Http\Controllers\UsersController@showNews');
+Route::get('/actualites', [\App\Http\Controllers\UsersController::class, 'showNews']);
 
 
 Route::get('/admin' ,  '\App\Http\Controllers\UsersController@showUsers' );
