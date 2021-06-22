@@ -44,10 +44,10 @@
                     <p class="text-lg font-medium text-gray-900">A propos</p>
                     <ul class="mt-2 space-y-0.5">
                         <li>
-                            <a class="text-sm text-gray-500" href="/contact">Contactez nous</a>
+                            <a class="text-sm text-gray-500" href="/contact" class="footer-link">Contactez nous</a>
                         </li>
                         <li>
-                            <a class="text-sm text-gray-500" href="/faq">FAQ</a>
+                            <a class="text-sm text-gray-500" href="/faq" class="footer-link">FAQ</a>
                         </li>
                     </ul>
                 </div>
@@ -55,10 +55,10 @@
                     <p class="text-lg font-medium text-gray-900">Nos Boxs</p>
                     <ul class="mt-2 space-y-0.5">
                         <li>
-                            <a class="text-sm text-gray-500" href="/services">Boxs Premium</a>
+                            <a class="text-sm text-gray-500" href="/services" class="footer-link">Boxs Premium</a>
                         </li>
                         <li>
-                            <a class="text-sm text-gray-500" href="/actualites">Actualités</a>
+                            <a class="text-sm text-gray-500" href="/actualites" class="footer-link">Actualités</a>
                         </li>
 
                     </ul>
@@ -67,10 +67,10 @@
                     <p class="text-lg font-medium text-gray-900">Nos réseaux</p>
                     <ul class="mt-2 space-y-0.5">
                         <li>
-                            <a class="text-sm text-gray-500" href="https://instagram.com">Instagram</a>
+                            <a class="text-sm text-gray-500" href="https://instagram.com" class="footer-link">Instagram</a>
                         </li>
                         <li>
-                            <a class="text-sm text-gray-500" href="https://twitter.com">Twitter</a>
+                            <a class="text-sm text-gray-500" href="https://twitter.com" class="footer-link">Twitter</a>
                         </li>
                     </ul>
                 </div>

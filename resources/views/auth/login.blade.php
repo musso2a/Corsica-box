@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../css/app.css">
-<link href="{{ secure_asset('/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
 @extends('layouts/navigation')
 

@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/app.css">
-    <link href="{{ secure_asset('/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     <title>CorsicaBox</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
 {{--            Centered Content--}}
 {{--        </div>--}}
 <div class="max-w-xl mx-auto text-center">
-    <p class="mt-2 text-3xl font-bold text-gray-900 sm:text-5xl">Bienvenue chez CorsicaBox !</p>
+    <p class="mt-2 text-3xl font-bold text-gray-900 sm:text-5xl">Bienvenue chez CorsicaBox</p>
     <div class="items-center justify-center mt-8 sm:flex">
         <div class="max-w-md p-2 mx-auto text-center">
             <a class="relative inline-block group" href="/services">
@@ -59,7 +59,7 @@
             <div id="card" class="">
                 <!-- container for all cards -->
                 <div class="container w-100 lg:w-4/5 mx-auto flex flex-col">
-                    <!-- card -->
+                    <!-- card --> @foreach($news as $new)
                     <div class="flex flex-col md:flex-row overflow-hidden
                                         bg-white border-black  mt-4 w-100 mx-2" id="news-card">
                         <!-- media -->
@@ -68,51 +68,18 @@
                         </div>
                         <!-- content -->
                         <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
-                            <h3 class="font-semibold text-lg leading-tight truncate">Titre</h3>
+                            <h3 class="font-semibold text-lg leading-tight truncate">{{ $new->title }}</h3>
                             <p class="mt-2">
-                                Voici une nouvelle box du mois c'est incroyable blablabla....<a href="#">Lire la suite</a>
+                                {{ $new->short_description }}<a href="/actualite/{{$new->id}}">Lire la suite...</a>
                             </p>
                             <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
-                                &bull; 02/02/02
+                                &bull; {{ $new->created_at }}
                             </p>
                         </div>
                     </div><!--/ card-->
                     <br>
-                    <div class="flex flex-col md:flex-row overflow-hidden
-                                        bg-white border-black  mt-4 w-100 mx-2" id="news-card">
-                        <!-- media -->
-                        <div class="h-64 w-auto md:w-1/2">
-                            <img class="inset-0 h-full w-full object-fill object-scale-down object-center" src="https://i.ibb.co/6NcfBkH/niolu.jpg" />
-                        </div>
-                        <!-- content -->
-                        <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
-                            <h3 class="font-semibold text-lg leading-tight truncate">Titre</h3>
-                            <p class="mt-2">
-                                Voici une nouvelle box du mois c'est incroyable blablabla....<a href="#">Lire la suite</a>
-                            </p>
-                            <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
-                                &bull; 02/02/02
-                            </p>
-                        </div>
-                    </div><!--/ card-->
-                    <br>
-                    <div class="flex flex-col md:flex-row overflow-hidden
-                                        bg-white border-black  mt-4 w-100 mx-2" id="news-card">
-                        <!-- media -->
-                        <div class="h-64 w-auto md:w-1/2">
-                            <img class="inset-0 h-full w-full object-fill object-scale-down object-center" src="https://i.ibb.co/6NcfBkH/niolu.jpg" />
-                        </div>
-                        <!-- content -->
-                        <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
-                            <h3 class="font-semibold text-lg leading-tight truncate">Titre</h3>
-                            <p class="mt-2">
-                                Voici une nouvelle box du mois c'est incroyable blablabla....<a href="#">Lire la suite</a>
-                            </p>
-                            <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
-                                &bull; 02/02/02
-                            </p>
-                        </div>
-                    </div><!--/ card-->
+                    @endforeach
+
                 </div><!--/ flex-->
             </div>
         </div>
@@ -121,17 +88,6 @@
     </section>
 </section>
 
-
-{{--    <div class="news-container">--}}
-{{--        <div class="news">--}}
-{{--            <div class="nexs-img">--}}
-
-{{--            </div>--}}
-{{--            <h4 class="news-tilte"></h4>--}}
-{{--            <h5 class="news-date"></h5>--}}
-{{--            <p class="news-info"></p><span class="">Lire la suite</span>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 
 <footer>@extends('layouts/footer')</footer>
 

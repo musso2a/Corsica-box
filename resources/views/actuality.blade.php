@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/app.css">
-    <link href="{{ secure_asset('/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     <title>Actualité</title>
 </head>
 <body>
@@ -24,31 +24,18 @@
                 <dl class="flex flex-col space-y-0.5 text-gray-500">
                     <div class="inline-flex">
                         <dt class="sr-only">Author</dt>
-                        <dd>Alfie Wickers</dd>
+                        <dd>{{ $new->title }}</dd>
                     </div>
                     <div class="inline-flex">
                         <dt class="sr-only">Published on</dt>
-                        <dd class="text-sm">Mar 30, 2021</dd>
+                        <dd class="text-sm">{{ $new->created_at }}</dd>
                     </div>
                 </dl>
             </div>
             <div class="lg:col-span-2">
                 <div class="prose max-w-none">
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus reprehenderit sit perferendis culpa
-                        voluptas laborum omnis aliquid quibusdam eveniet laboriosam ea commodi, ex quae repellat asperiores tenetur
-                        consequuntur dolorem. Ea!
-                    </p>
-                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, dicta!</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor facere tenetur repellendus minima reiciendis
-                        est culpa eos illo voluptatem! Modi soluta veritatis ipsam labore voluptatem asperiores dolor rem porro
-                        dolores.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam repudiandae temporibus maxime assumenda
-                        blanditiis fugit neque doloremque aut sit vero!
-                    </p>
+                    <p>{{ $new->description }} </p>
+
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../css/app.css">
-<link href="{{ secure_asset('/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
 @extends('layouts/navigation')
 
@@ -24,13 +24,6 @@
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
-                <br>
-
-                <!-- Surname --><div>
-                    <x-label for="name" :value="__('Prenom')" />
-
-                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-                </div>
 
             <!-- Email Address -->
             <div class="mt-4">

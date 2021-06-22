@@ -40,7 +40,7 @@
             @if (Route::has('login'))
             <li class="mr-3">
                 @auth
-                <a class="inline-block py-2 px-4 text-black no-underline" href="{{ url('/dashboard') }}">Mon Compte</a>
+                <a class="inline-block py-2 px-4 text-black no-underline" href="{{ url('/admin') }}">Mon Compte</a>
                 @else
 
                 <a class="inline-block py-2 px-4 text-black no-underline" href="{{ route('register') }}">Connexion</a>

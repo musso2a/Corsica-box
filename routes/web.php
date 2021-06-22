@@ -17,41 +17,46 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'App\Http\Controllers\NewsController@showHome');
 
-Route::get('/services', function () {
-    return view('products');
-});
+Route::get('/services', 'App\Http\Controllers\NewsController@showServices' );
 
-Route::get('/actualites', function () {
-    return view('news');
-});
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'contact']);
+//Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'sendEmail'])->name('contact.send');
 
 Route::get('/product', function () {
     return view('product');
 });
 
+
+
+Route::get('/actualite/{id}', 'App\Http\Controllers\NewsController@showNew');
+Route::get('/actualites', 'App\Http\Controllers\UsersController@showNews');
+
+
+Route::get('/admin' ,  '\App\Http\Controllers\UsersController@showUsers' );
+Route::get('/adminplans' ,  '\App\Http\Controllers\AdminController@adminProducts' );
+Route::get('/adminnews' ,  '\App\Http\Controllers\AdminController@adminNews' );
+Route::get('/deleteuser/{id}' ,  '\App\Http\Controllers\UsersController@deleteUser' );
+Route::get('/edituser/{id}' ,  '\App\Http\Controllers\UsersController@editUser' );
+
+
+Route::get('/sendemail', 'ContactController@index');
+Route::post('/sendemail/send', 'ContactController@send');
+
+
 Route::get('/faq', function () {
     return view('faq');
 });
 
-Route::get('/actualite', function () {
-    return view('actuality');
+Route::fallback(function() {
+    return view('404'); // la vue
 });
 
-Route::get('/admin', function () {
+
+Route::get('/home', function () {
     return view('admin');
-});
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
