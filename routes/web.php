@@ -17,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', 'App\Http\Controllers\NewsController@showHome');
+//Route::get('/', 'App\Http\Controllers\NewsController@showHome');
+Route::get('/', function () {
+    return view('home');
+});
 
 Route::get('/services', 'App\Http\Controllers\NewsController@showServices' );
 
