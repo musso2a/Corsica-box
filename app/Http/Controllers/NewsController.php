@@ -24,4 +24,46 @@ class NewsController extends Controller
 
         return view('products')->with('$services', $services);
     }
+
+    public function addNew(Request $request){
+
+
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'text_description' => 'required',
+            'full_text' => 'required',
+            'publish' => 'required',
+        ]);
+
+        $countNews = DB::table('news')->latest('id')->first();
+
+
+//        if ($result){
+//            DB::table('news')->insert([
+//                'title' => $request->title,
+//                'date' => $request->date,
+//                'text_description' => $request->text_description,
+//                'full_text' => $request->full_text,
+//                'publish' => $request->publish,
+//                'autor' => session('user')->name,
+//                'url' => $result->getSecurePath(),
+//            ]);
+//        }
+
+        return redirect('adminnews');
+    }
+
+    public function deleteNew($id){
+//        if (session('user') == null){
+//            return redirect('');
+//        }
+//        if (session('user')->is_admin == 0){
+//            return redirect('home');
+//        };
+
+        DB::table('news')->where('id',$id)->delete();
+        return redirect('adminnews');
+    }
+
 }

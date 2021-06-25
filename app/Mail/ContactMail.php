@@ -1,23 +1,26 @@
 <?php
-namespace App\Http\Mail;
+namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendMail extends Mailable
+class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $data;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public $information;
+
+    public function __construct($information)
     {
-        $this->data = $data;
+        //
+        $this->information = $information;
     }
 
     /**
@@ -27,8 +30,6 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('john@webslesson.info')->subject('New Customer Equiry')->view('dynamic_email_template')->with('data', $this->data);
+        return $this->markdown('emails.contact');
     }
 }
-
-?>

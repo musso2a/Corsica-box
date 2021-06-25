@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
-            <form method="POST" enctype="multipart/form-data" action="{{  route('send.email') }}">
+            <form method="POST" enctype="multipart/form-data" action="{{  url('contact') }}">
                 @csrf
 
             <h1 class="text-black text-3xl mb-1 font-medium  text-center">Formulaire de contact</h1>

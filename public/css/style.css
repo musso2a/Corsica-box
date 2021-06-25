@@ -144,3 +144,7 @@ a {
 #sidebar-admin {
     border-right: #1a202c 2px solid;
 }
+
+#description {
+    height: 200px;
+}

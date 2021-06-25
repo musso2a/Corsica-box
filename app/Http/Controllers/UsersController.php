@@ -39,7 +39,7 @@ class UsersController extends Controller
 //        $this->checkIsAdmin();
 
         $delete = DB::table('users')->where('id', $id)->delete();
-        return redirect('users');
+        return redirect('admin');
 //        return view('admin');
     }
 }

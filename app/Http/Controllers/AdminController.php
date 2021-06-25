@@ -8,9 +8,23 @@ use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
     public function AdminNews(){
-        $adminNews = DB::table('actuality')->paginate(2);
+        $adminNews = DB::table('actuality')->get();
 
         return view('adminnews')->with('adminNews', $adminNews);
+    }
+
+    public function showDashboard(){
+        $allUsers = DB::table('users')->get();
+        return view('admindashboard')->with('allUsers', $allUsers);
+    }
+
+    public function deleteUser($id){
+//        $this->checkIsConnected();
+//        $this->checkIsAdmin();
+
+        $delete = DB::table('users')->where('id', $id)->delete();
+        return redirect('admin');
+//        return view('admin');
     }
 
     public function adminProducts(){
@@ -18,4 +32,10 @@ class AdminController extends Controller
 
         return view('adminplans')->with('products', $products);
     }
+
+    public function newsForm(){
+
+        return view('newsform');
+    }
+
 }

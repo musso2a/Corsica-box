@@ -29,8 +29,7 @@
             </div>
 
             <nav class="mt-10">
-                {{--                @if($user->is_admin==1)--}}
-                <a class="flex items-center mt-4 py-2 px-6  bg-opacity-25 text-black" href="/admindashboard">
+                <a class="flex items-center mt-4 py-2 px-6  text-black" href="/admindashboard">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -44,7 +43,7 @@
                 <br>
 
                 <a class="flex items-center mt-4 py-2 px-6 text-black hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-                   href="/admin">
+                   href="/adminusers">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -79,20 +78,6 @@
 
                     <span class="mx-3">Actualités</span>
                 </a>
-                {{--                @else--}}
-                {{--                    <a class="flex items-center mt-4 py-2 px-6  bg-opacity-25 text-black" href="/">--}}
-                {{--                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"--}}
-                {{--                             stroke="currentColor">--}}
-                {{--                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
-                {{--                                  d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>--}}
-                {{--                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
-                {{--                                  d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>--}}
-                {{--                        </svg>--}}
-
-                {{--                        <span class="mx-3 ">Dashboard</span>--}}
-                {{--                    </a>--}}
-                {{--                    <br>--}}
-                {{--                    @endif--}}
             </nav>
         </div>
         <div class="flex-1 flex flex-col overflow-hidden">
@@ -128,7 +113,48 @@
                         <div x-show="notificationOpen" @click="notificationOpen = false"
                              class="fixed inset-0 h-full w-full z-10" style="display: none;"></div>
 
-
+                        <div x-show="notificationOpen"
+                             class="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl overflow-hidden z-10"
+                             style="width: 20rem; display: none;">
+                            <a href="#"
+                               class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-indigo-600 -mx-2">
+                                <img class="h-8 w-8 rounded-full object-cover mx-1"
+                                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=334&amp;q=80"
+                                     alt="avatar">
+                                <p class="text-sm mx-2">
+                                    <span class="font-bold" href="#">Sara Salah</span> replied on the <span
+                                        class="font-bold text-indigo-400" href="#">Upload Image</span> artical . 2m
+                                </p>
+                            </a>
+                            <a href="#"
+                               class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-indigo-600 -mx-2">
+                                <img class="h-8 w-8 rounded-full object-cover mx-1"
+                                     src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80"
+                                     alt="avatar">
+                                <p class="text-sm mx-2">
+                                    <span class="font-bold" href="#">Slick Net</span> start following you . 45m
+                                </p>
+                            </a>
+                            <a href="#"
+                               class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-indigo-600 -mx-2">
+                                <img class="h-8 w-8 rounded-full object-cover mx-1"
+                                     src="https://images.unsplash.com/photo-1450297350677-623de575f31c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=334&amp;q=80"
+                                     alt="avatar">
+                                <p class="text-sm mx-2">
+                                    <span class="font-bold" href="#">Jane Doe</span> Like Your reply on <span
+                                        class="font-bold text-indigo-400" href="#">Test with TDD</span> artical . 1h
+                                </p>
+                            </a>
+                            <a href="#"
+                               class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-indigo-600 -mx-2">
+                                <img class="h-8 w-8 rounded-full object-cover mx-1"
+                                     src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=398&amp;q=80"
+                                     alt="avatar">
+                                <p class="text-sm mx-2">
+                                    <span class="font-bold" href="#">Abigail Bennett</span> start following you . 3h
+                                </p>
+                            </a>
+                        </div>
                     </div>
 
                     <div x-data="{ dropdownOpen: false }" class="relative">
@@ -157,84 +183,79 @@
             </header>
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-white">
                 <div class="container mx-auto px-6 py-8">
-                    <h3 class="text-gray-700 text-3xl font-medium">Dashboard</h3>
+                    <h3 class="text-gray-700 text-3xl font-medium">Mes informations :</h3>
 
                     <div class="mt-8">
-                        {{--                       <p>{{Auth::user()->name}}</p>--}}
+
                     </div>
 
-                    <div class="flex flex-col mt-8">
-                        <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-                            <div
-                                class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
-                                <table class="min-w-full">
-                                    <thead>
-                                    <tr>
-                                        <th
-                                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                            Name</th>
-                                        <th
-                                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                            Adresse</th>
-                                        <th
-                                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                            Admin</th>
-                                        <th
-                                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                            Numero</th>
-                                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
-                                    </tr>
-                                    </thead>
+                    <div class="mt-10 sm:mt-0">
 
-                                    <tbody class="bg-white">
-                                    @foreach($allUsers as $user)
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="flex items-center">
-                                                    <div class="flex-shrink-0 h-10 w-10">
-                                                        <img class="h-10 w-10 rounded-full"
-                                                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
-                                                             alt="">
-                                                    </div>
+                        <div class="mt-5 md:mt-0 md:col-span-2">
+                            <form action="#" method="POST">
+                                <div class="shadow overflow-hidden sm:rounded-md">
+                                    <div class="px-4 py-5 bg-white sm:p-6">
+                                        <div class="grid grid-cols-6 gap-6">
+                                            <div class="col-span-6 sm:col-span-3">
+                                                <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
+                                                <input type="text" name="first_name" id="first_name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            </div>
 
-                                                    <div class="ml-4">
-                                                        <div class="text-sm leading-5 font-medium text-gray-900">{{ $user->name }}</div>
-                                                        <div class="text-sm leading-5 text-gray-500">{{ $user->email }}</div>
-                                                    </div>
-                                                </div>
-                                            </td>
+                                            <div class="col-span-6 sm:col-span-3">
+                                                <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
+                                                <input type="text" name="last_name" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            </div>
 
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="text-sm leading-5 text-gray-900">{{ $user->adresse }}</div>
-                                                <div class="text-sm leading-5 text-gray-500">{{ $user->city }}</div>
-                                            </td>
+                                            <div class="col-span-6 sm:col-span-4">
+                                                <label for="email_address" class="block text-sm font-medium text-gray-700">Email address</label>
+                                                <input type="text" name="email_address" id="email_address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            </div>
 
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <span
-                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">@if($user->is_admin==0) Utilisateur @else Admin @endif</span>
-                                            </td>
+                                            <div class="col-span-6 sm:col-span-3">
+                                                <label for="country" class="block text-sm font-medium text-gray-700">Country / Region</label>
+                                                <select id="country" name="country" autocomplete="country" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                    <option>United States</option>
+                                                    <option>Canada</option>
+                                                    <option>Mexico</option>
+                                                </select>
+                                            </div>
 
-                                            <td
-                                                class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                                {{ $user->telephone }}</td>
+                                            <div class="col-span-6">
+                                                <label for="street_address" class="block text-sm font-medium text-gray-700">Street address</label>
+                                                <input type="text" name="street_address" id="street_address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            </div>
 
-                                            <td
-                                                class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                                <a href="/edituser/{{ $user->id }}" class="text-indigo-600 hover:text-indigo-900">Edit</a> |
-                                                <a href="/deleteuser/{{ $user->id }}" class="text-indigo-600 hover:text-indigo-900 color:red">Supprimer</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                            <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                                                <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                                                <input type="text" name="city" id="city" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            </div>
 
-                                    </tbody>
-                                </table>
-                            </div>
+                                            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                                                <label for="state" class="block text-sm font-medium text-gray-700">State / Province</label>
+                                                <input type="text" name="state" id="state" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            </div>
+
+                                            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                                                <label for="postal_code" class="block text-sm font-medium text-gray-700">ZIP / Postal</label>
+                                                <input type="text" name="postal_code" id="postal_code" autocomplete="postal-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                            Save
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </main>
+
         </div>
+        </main>
     </div>
+</div>
 </div>
 </body>
 </html>

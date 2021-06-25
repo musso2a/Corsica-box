@@ -13,51 +13,48 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
-Route::get('/', 'App\Http\Controllers\NewsController@showHome');
-Route::get('/', [\App\Http\Controllers\NewsController::class, 'showHome']);
-//Route::get('/', function () {
-//    return view('home');
-//});
+/*  Website page  */
+
+
+Route::get('/faq', function () {return view('faq');});
+
+Route::fallback(function() {return view('404');});
 
 Route::get('/services', 'App\Http\Controllers\NewsController@showServices' );
 
+Route::get('/product', function () {return view('product');});
+Route::post('/product', 'App\Http\Controllers\CheckoutController@store' );
 
-Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'contact']);
-//Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'sendEmail'])->name('contact.send');
+Route::get('/contact', function () { return view('contact');});
+Route::post('/contact', '\App\Http\Controllers\ContactController@sendMail');
 
-Route::get('/product', function () {
-    return view('product');
-});
+Route::get('/', 'App\Http\Controllers\NewsController@showHome');
+Route::get('/', [\App\Http\Controllers\NewsController::class, 'showHome']);
 
-
-
-Route::get('/actualite/{id}', 'App\Http\Controllers\NewsController@showNew');
-//Route::get('/actualites', 'App\Http\Controllers\UsersController@showNews');
 Route::get('/actualites', [\App\Http\Controllers\UsersController::class, 'showNews']);
 
+Route::get('/actualite/{id}', 'App\Http\Controllers\NewsController@showNew');
+
+
+/*  Admin Page  */
 
 Route::get('/admin' ,  '\App\Http\Controllers\UsersController@showUsers' );
-Route::get('/adminplans' ,  '\App\Http\Controllers\AdminController@adminProducts' );
-Route::get('/adminnews' ,  '\App\Http\Controllers\AdminController@adminNews' );
 Route::get('/deleteuser/{id}' ,  '\App\Http\Controllers\UsersController@deleteUser' );
 Route::get('/edituser/{id}' ,  '\App\Http\Controllers\UsersController@editUser' );
 
 
-Route::get('/sendemail', 'ContactController@index');
-Route::post('/sendemail/send', 'ContactController@send');
+Route::get('/admindashboard' ,  '\App\Http\Controllers\AdminController@showDashboard' );
 
+Route::get('/adminplans' ,  '\App\Http\Controllers\AdminController@adminProducts' );
 
-Route::get('/faq', function () {
-    return view('faq');
-});
+Route::get('/adminnews' ,  '\App\Http\Controllers\AdminController@adminNews' );
+Route::get('/deletenew/{id}' ,  '\App\Http\Controllers\NewsController@deleteNew' );
+Route::get('/editnew/{id}' ,  '\App\Http\Controllers\NewsController@editNew' );
 
-Route::fallback(function() {
-    return view('404'); // la vue
-});
+Route::get('/newsform' ,  '\App\Http\Controllers\AdminController@newsForm' );
+Route::get('/addactuality' ,  '\App\Http\Controllers\AdminController@newsForm' );
+
 
 
 Route::get('/home', function () {

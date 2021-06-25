@@ -66,7 +66,7 @@
         </div>
     </div>
     <div class="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-auto">
-        <img class="absolute inset-0 object-cover w-full h-full" src="https://i.ibb.co/HXhw02L/plage.jpg" alt="">
+        <img class="absolute inset-0 object-cover w-full h-full" src="https://i.ibb.co/Y7rwJpg/arbre2.jpg" alt="">
     </div>
 </section>
 

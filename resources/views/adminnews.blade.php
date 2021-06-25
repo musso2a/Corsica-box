@@ -105,7 +105,14 @@
                     <h3 class="text-gray-700 text-3xl font-medium">Dashboard</h3>
 
                     <div class="mt-8">
-
+                        <a class="relative inline-block group" href="/newsform">
+  <span
+      class="absolute inset-0 transition-transform transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                            <span class="relative inline-block px-5 py-3 font-medium text-black bg-white border-2 border-current">
+    Ajouter +
+  </span>
+                        </a>
+{{--                        <a href="/newsform">Ajouter +</a>--}}
                     </div>
 
                     <div class="flex flex-col mt-8">

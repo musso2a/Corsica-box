@@ -53,39 +53,39 @@
             Dernières actualités
         </h2>
     </div>
-{{--    <section class="h-screen">--}}
-{{--        <div class="pt-16 pb-12 bg-white">--}}
-{{--            <br>--}}
-{{--            <div id="card" class="">--}}
-{{--                <!-- container for all cards -->--}}
-{{--                <div class="container w-100 lg:w-4/5 mx-auto flex flex-col">--}}
-{{--                    <!-- card --> @foreach($news as $new)--}}
-{{--                    <div class="flex flex-col md:flex-row overflow-hidden--}}
-{{--                                        bg-white border-black  mt-4 w-100 mx-2" id="news-card">--}}
-{{--                        <!-- media -->--}}
-{{--                        <div class="h-64 w-auto md:w-1/2">--}}
-{{--                            <img class="inset-0 h-full w-full object-fill object-scale-down object-center" src="https://i.ibb.co/6NcfBkH/niolu.jpg" />--}}
-{{--                        </div>--}}
-{{--                        <!-- content -->--}}
-{{--                        <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">--}}
-{{--                            <h3 class="font-semibold text-lg leading-tight truncate">{{ $new->title }}</h3>--}}
-{{--                            <p class="mt-2">--}}
-{{--                                {{ $new->short_description }}<a href="/actualite/{{$new->id}}">Lire la suite...</a>--}}
-{{--                            </p>--}}
-{{--                            <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">--}}
-{{--                                &bull; {{ $new->created_at }}--}}
-{{--                            </p>--}}
-{{--                        </div>--}}
-{{--                    </div><!--/ card-->--}}
-{{--                    <br>--}}
-{{--                    @endforeach--}}
+    <section class="h-screen">
+        <div class="pt-16 pb-12 bg-white">
+            <br>
+            <div id="card" class="">
+                <!-- container for all cards -->
+                <div class="container w-100 lg:w-4/5 mx-auto flex flex-col">
+                    <!-- card --> @foreach($news as $new)
+                    <div class="flex flex-col md:flex-row overflow-hidden
+                                        bg-white border-black  mt-4 w-100 mx-2" id="news-card">
+                        <!-- media -->
+                        <div class="h-64 w-auto md:w-1/2">
+                            <img class="inset-0 h-full w-full object-fill object-scale-down object-center" src="https://i.ibb.co/6NcfBkH/niolu.jpg" />
+                        </div>
+                        <!-- content -->
+                        <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
+                            <h3 class="font-semibold text-lg leading-tight truncate">{{ $new->title }}</h3>
+                            <p class="mt-2">
+                                {{ $new->short_description }}<a href="/actualite/{{$new->id}}">Lire la suite...</a>
+                            </p>
+                            <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
+                                &bull; {{ $new->created_at }}
+                            </p>
+                        </div>
+                    </div><!--/ card-->
+                    <br>
+                    @endforeach
 
-{{--                </div><!--/ flex-->--}}
-{{--            </div>--}}
-{{--        </div>--}}
+                </div><!--/ flex-->
+            </div>
+        </div>
 
 
-{{--    </section>--}}
+    </section>
 </section>
 
 

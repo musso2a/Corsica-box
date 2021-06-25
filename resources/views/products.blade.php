@@ -129,7 +129,7 @@
                         <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-dark sm:h-5 sm:w-5 md:h-6 md:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
-                        Une confiture de saison
+                        Une bouteille de vin Corse
                     </li>
                 </ul>
                 <button class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-white no-underline bg-black border  cursor-pointer hover:bg-gray-600 hover:border-gray-600 hover:text-white focus-within:bg-black focus-within:border-black focus-within:text-white sm:text-base md:text-lg" >
