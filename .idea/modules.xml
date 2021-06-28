@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CorsicaBox.iml" filepath="$PROJECT_DIR$/.idea/CorsicaBox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Back/chemin-navbar/.idea/chemin-navbar.iml" filepath="$PROJECT_DIR$/../../Back/chemin-navbar/.idea/chemin-navbar.iml" />
     </modules>
   </component>
 </project>

@@ -29,8 +29,9 @@
             </div>
 
             <nav class="mt-10">
-{{--                @if($user->is_admin==1)--}}
-                <a class="flex items-center mt-4 py-2 px-6  bg-opacity-25 text-black" href="/admindashboard">
+{{--                @if( user()->is_admin == 0)--}}
+                @if( Auth::user()->is_admin == 0)
+                <a class="flex items-center mt-4 py-2 px-6  bg-opacity-25 text-black" href="/admin">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -42,9 +43,21 @@
                     <span class="mx-3 ">Dashboard</span>
                 </a>
                 <br>
+                @else
+                    <a class="flex items-center mt-4 py-2 px-6  bg-opacity-25 text-black" href="/admin">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                        </svg>
 
+                        <span class="mx-3 ">Dashboard</span>
+                    </a>
+                    <br>
                 <a class="flex items-center mt-4 py-2 px-6 text-black hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-                   href="/admin">
+                   href="/admindashboard">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -93,6 +106,7 @@
 {{--                    </a>--}}
 {{--                    <br>--}}
 {{--                    @endif--}}
+                @endif
             </nav>
         </div>
         <div class="flex-1 flex flex-col overflow-hidden">
@@ -145,89 +159,165 @@
                         <div x-show="dropdownOpen"
                              class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10"
                              style="display: none;">
-                            <a href="#"
+                            <a href="/admin"
                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Profile</a>
-                            <a href="#"
+                            <a href="/services"
                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Products</a>
-                            <a href="/login"
-                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Logout</a>
+{{--                            <a href="/logout"--}}
+{{--                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Logout</a>--}}
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-responsive-nav-link :href="route('logout')"
+                                                       onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-responsive-nav-link>
+                            </form>
                         </div>
                     </div>
                 </div>
             </header>
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-white">
                 <div class="container mx-auto px-6 py-8">
-                    <h3 class="text-gray-700 text-3xl font-medium">Dashboard</h3>
+                    <h3 class="text-gray-700 text-3xl font-medium">Dashboard de {{ $user->name }}</h3>
 
                     <div class="mt-8">
 {{--                       <p>{{Auth::user()->name}}</p>--}}
                     </div>
 
-                    <div class="flex flex-col mt-8">
-                        <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-                            <div
-                                class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
-                                <table class="min-w-full">
-                                    <thead>
-                                    <tr>
-                                        <th
-                                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                            Name</th>
-                                        <th
-                                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                            Adresse</th>
-                                        <th
-                                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                            Admin</th>
-                                        <th
-                                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                            Numero</th>
-                                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
-                                    </tr>
-                                    </thead>
 
-                                    <tbody class="bg-white">
-                                    @foreach($allUsers as $user)
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                            <div class="flex items-center">
-                                                <div class="flex-shrink-0 h-10 w-10">
-                                                    <img class="h-10 w-10 rounded-full"
-                                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
-                                                         alt="">
-                                                </div>
 
-                                                <div class="ml-4">
-                                                    <div class="text-sm leading-5 font-medium text-gray-900">{{ $user->name }}</div>
-                                                    <div class="text-sm leading-5 text-gray-500">{{ $user->email }}</div>
-                                                </div>
-                                            </div>
-                                        </td>
 
-                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                            <div class="text-sm leading-5 text-gray-900">{{ $user->adresse }}</div>
-                                            <div class="text-sm leading-5 text-gray-500">{{ $user->city }}</div>
-                                        </td>
+                    <form class="w-full max-w-lg" method="POST">
+                        @csrf
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first_name">
+                                    Prenom
+                                </label>
+                                <input class="appearance-none block w-full bg-white text-gray-700 border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="first_name" type="text" placeholder="Prénom">
 
-                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <span
-                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">@if($user->is_admin==0) Utilisateur @else Admin @endif</span>
-                                        </td>
+                            </div>
+                            <div class="w-full md:w-1/2 px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
+                                    Nom
+                                </label>
+                                <input class="appearance-none block w-full bg-white text-gray-700 border border-black py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-black" id="name" type="text" placeholder="{{ $user->name }}">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="adresse">
+                                    Adresse
+                                </label>
+                                <input class="appearance-none block w-full bg-white text-gray-700 border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-black" id="adresse" type="text" placeholder="Adresse">
 
-                                        <td
-                                            class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                            {{ $user->telephone }}</td>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="city">
+                                    Ville
+                                </label>
+                                <input class="appearance-none block w-full bg-white text-gray-700 border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="city" type="text" placeholder="Ville">
 
-                                        <td
-                                            class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                            <a href="/edituser/{{ $user->id }}" class="text-indigo-600 hover:text-indigo-900">Edit</a> |
-                                            <a href="/deleteuser/{{ $user->id }}" class="text-indigo-600 hover:text-indigo-900 color:red">Supprimer</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
+                            </div>
+                            <div class="w-full md:w-1/2 px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="postal_code">
+                                    Code postal
+                                </label>
+                                <input class="appearance-none block w-full bg-white text-gray-700 border border-black py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-black" id="postal_code" type="text" placeholder="ZIP">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
+                                    Email
+                                </label>
+                                <input class="appearance-none block w-full bg-white text-gray-700 border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-black" id="email" type="text" placeholder="Email">
 
-                                    </tbody>
-                                </table>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <a class="relative inline-block group" href="/updateuser">
+  <span
+      class="absolute inset-0 transition-transform transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                                <span class="relative inline-block px-5 py-3 font-medium text-black bg-white border-2 border-current">
+    Mettre a jour mes informations
+  </span>
+                            </a>
+                            {{--                        <a href="/newsform">Ajouter +</a>--}}
+                        </div>
+                    </form>
+
+
+                    {{--                    <div class="flex flex-col mt-8">--}}
+{{--                        <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">--}}
+{{--                            <div--}}
+{{--                                class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">--}}
+{{--                                <table class="min-w-full">--}}
+{{--                                    <thead>--}}
+{{--                                    <tr>--}}
+{{--                                        <th--}}
+{{--                                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">--}}
+{{--                                            Name</th>--}}
+{{--                                        <th--}}
+{{--                                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">--}}
+{{--                                            Adresse</th>--}}
+{{--                                        <th--}}
+{{--                                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">--}}
+{{--                                            Admin</th>--}}
+{{--                                        <th--}}
+{{--                                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">--}}
+{{--                                            Numero</th>--}}
+{{--                                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>--}}
+{{--                                    </tr>--}}
+{{--                                    </thead>--}}
+
+{{--                                    <tbody class="bg-white">--}}
+{{--                                    @foreach($allUsers as $user)--}}
+{{--                                    <tr>--}}
+{{--                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">--}}
+{{--                                            <div class="flex items-center">--}}
+{{--                                                <div class="flex-shrink-0 h-10 w-10">--}}
+{{--                                                    <img class="h-10 w-10 rounded-full"--}}
+{{--                                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"--}}
+{{--                                                         alt="">--}}
+{{--                                                </div>--}}
+
+{{--                                                <div class="ml-4">--}}
+{{--                                                    <div class="text-sm leading-5 font-medium text-gray-900">{{ $user->name }}</div>--}}
+{{--                                                    <div class="text-sm leading-5 text-gray-500">{{ $user->email }}</div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </td>--}}
+
+{{--                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">--}}
+{{--                                            <div class="text-sm leading-5 text-gray-900">{{ $user->adresse }}</div>--}}
+{{--                                            <div class="text-sm leading-5 text-gray-500">{{ $user->city }}</div>--}}
+{{--                                        </td>--}}
+
+{{--                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">--}}
+{{--                                                <span--}}
+{{--                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">@if($user->is_admin==0) Utilisateur @else Admin @endif</span>--}}
+{{--                                        </td>--}}
+
+{{--                                        <td--}}
+{{--                                            class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">--}}
+{{--                                            {{ $user->telephone }}</td>--}}
+
+{{--                                        <td--}}
+{{--                                            class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">--}}
+{{--                                            <a href="/edituser/{{ $user->id }}" class="text-indigo-600 hover:text-indigo-900">Edit</a> |--}}
+{{--                                            <a href="/deleteuser/{{ $user->id }}" class="text-indigo-600 hover:text-indigo-900 color:red">Supprimer</a>--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
+{{--                                    @endforeach--}}
+
+{{--                                    </tbody>--}}
+{{--                                </table>--}}
                             </div>
                         </div>
                     </div>

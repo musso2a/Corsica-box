@@ -54,9 +54,15 @@
                     </li>
 
                 </ul>
-                <button class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-white no-underline bg-black border  cursor-pointer hover:bg-gray-600 hover:border-gray-600 hover:text-white focus-within:bg-black focus-within:border-black focus-within:text-white sm:text-base md:text-lg" >
-                    Je m'abonne !
-                </button>
+                @if( Auth::user())
+                    <button class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-white no-underline bg-black border  cursor-pointer hover:bg-gray-600 hover:border-gray-600 hover:text-white focus-within:bg-black focus-within:border-black focus-within:text-white sm:text-base md:text-lg" >
+                        <a href="/product">Je m'abonne !</a>
+                    </button>
+                @else
+                    <button class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-white no-underline bg-black border  cursor-pointer hover:bg-gray-600 hover:border-gray-600 hover:text-white focus-within:bg-black focus-within:border-black focus-within:text-white sm:text-base md:text-lg" >
+                        <a href="/login">Je m'abonne !</a>
+                    </button>
+                @endif
             </div>
             <!-- Price 2 -->
             <div class="relative flex flex-col z-10 items-center max-w-md p-4 mx-auto my-0 bg-white border-4  border-solid sm:p-6 md:px-8 md:py-16" id="card-center">
@@ -93,9 +99,15 @@
                         Une confiture de saison
                     </li>
                 </ul>
-                <button   class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-white no-underline bg-black border  cursor-pointer hover:bg-gray-600 hover:border-gray-600 hover:text-white focus-within:bg-black focus-within:border-black focus-within:text-white sm:text-base md:text-lg" id="button-card-center">
-                    <a href="/product">Je m'abonne !</a>
-                </button>
+                @if( Auth::user())
+                    <button class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-white no-underline bg-black border  cursor-pointer hover:bg-gray-600 hover:border-gray-600 hover:text-white focus-within:bg-black focus-within:border-black focus-within:text-white sm:text-base md:text-lg" >
+                        <a href="/product">Je m'abonne !</a>
+                    </button>
+                @else
+                    <button class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-white no-underline bg-black border  cursor-pointer hover:bg-gray-600 hover:border-gray-600 hover:text-white focus-within:bg-black focus-within:border-black focus-within:text-white sm:text-base md:text-lg" >
+                        <a href="/login">Je m'abonne !</a>
+                    </button>
+                @endif
             </div>
             <!-- Price 3 -->
             <div class="relative z-5 flex flex-col items-center max-w-md p-4 mx-auto my-0 border border-solid  lg:-ml-3 sm:my-0 sm:p-6 md:my-8 md:p-8" id="card-right">
@@ -132,9 +144,15 @@
                         Une bouteille de vin Corse
                     </li>
                 </ul>
+                @if( Auth::user())
                 <button class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-white no-underline bg-black border  cursor-pointer hover:bg-gray-600 hover:border-gray-600 hover:text-white focus-within:bg-black focus-within:border-black focus-within:text-white sm:text-base md:text-lg" >
-                    Je m'abonne !
+                    <a href="/product">Je m'abonne !</a>
                 </button>
+                @else
+                    <button class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-white no-underline bg-black border  cursor-pointer hover:bg-gray-600 hover:border-gray-600 hover:text-white focus-within:bg-black focus-within:border-black focus-within:text-white sm:text-base md:text-lg" >
+                        <a href="/login">Je m'abonne !</a>
+                    </button>
+                @endif
             </div>
         </div>
     </div>

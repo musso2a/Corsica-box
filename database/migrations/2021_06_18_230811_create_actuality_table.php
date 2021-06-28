@@ -13,7 +13,7 @@ class CreateActualityTable extends Migration
      */
     public function up()
     {
-        Schema::create('actuality', function (Blueprint $table) {
+        Schema::create('actualities', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('title');

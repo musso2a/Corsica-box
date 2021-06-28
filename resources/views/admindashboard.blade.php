@@ -30,7 +30,7 @@
 
             <nav class="mt-10">
                 {{--                @if($user->is_admin==1)--}}
-                <a class="flex items-center mt-4 py-2 px-6  bg-opacity-25 text-black" href="/admindashboard">
+                <a class="flex items-center mt-4 py-2 px-6  bg-opacity-25 text-black" href="/admin">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -44,7 +44,7 @@
                 <br>
 
                 <a class="flex items-center mt-4 py-2 px-6 text-black hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-                   href="/admin">
+                   href="/admindashboard">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -145,12 +145,19 @@
                         <div x-show="dropdownOpen"
                              class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10"
                              style="display: none;">
-                            <a href="#"
+                            <a href="/admin"
                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Profile</a>
-                            <a href="#"
+                            <a href="/services"
                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Products</a>
-                            <a href="/login"
-                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Logout</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-responsive-nav-link :href="route('logout')"
+                                                       onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-responsive-nav-link>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Actuality;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Post;
 
 
 class NewsController extends Controller
 {
     public function showHome(){
-        $news = DB::table('actuality')->where('publish',1)->limit(3)->get();
+        $news = DB::table('actualities')->where('publish',1)->limit(3)->get();
         return view('home')->with('news',$news);
     }
 
     public function showNew($id){
-        $new = DB::table('actuality')->where('id', $id)->first();
+        $new = DB::table('actualities')->where('id', $id)->first();
         return view('actuality')->with('new', $new);
     }
 
@@ -30,28 +32,38 @@ class NewsController extends Controller
 
         $request->validate([
             'title' => 'required',
-            'date' => 'required',
-            'text_description' => 'required',
-            'full_text' => 'required',
+            'short_description' => 'required',
+            'description' => 'required',
             'publish' => 'required',
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $countNews = DB::table('news')->latest('id')->first();
+        $result = $request->main_photo->storeOnCloudinaryAs('corsicabox');
+
+        Actuality::create([
+            'title' => $request->title,
+            'short_description' => $request->short_description,
+            'description' => $request->description,
+            'img' => $result->getSecurePath(),
+            'publish' => $request->publish,
+        ]);
 
 
-//        if ($result){
-//            DB::table('news')->insert([
-//                'title' => $request->title,
-//                'date' => $request->date,
-//                'text_description' => $request->text_description,
-//                'full_text' => $request->full_text,
-//                'publish' => $request->publish,
-//                'autor' => session('user')->name,
-//                'url' => $result->getSecurePath(),
-//            ]);
-//        }
 
         return redirect('adminnews');
+    }
+
+    public function searchNews(Request $request){
+        $request->validate([
+            'search_input' => 'required',
+        ]);
+
+        $searchNews = DB::table('actualities')->where('title', 'LIKE', "%{$request->search_input}%")->orWhere('full_text', 'LIKE', "%{$request->search_input}%")->get();
+
+        if ($searchNews->total() == 0){
+            $searchNews = false;
+        }
+        return view('research')->with('searchNews', $searchNews);
     }
 
     public function deleteNew($id){
@@ -62,7 +74,7 @@ class NewsController extends Controller
 //            return redirect('home');
 //        };
 
-        DB::table('news')->where('id',$id)->delete();
+        DB::table('actualities')->where('id',$id)->delete();
         return redirect('adminnews');
     }
 

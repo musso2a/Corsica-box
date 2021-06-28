@@ -17,12 +17,46 @@
 <br>
 <br>
 <br>
-<div class="flex flex-col items-center leading-7 text-center text-gray-900 border-0 border-gray-200">
+<div class="flex flex-col items-center leading-7 text-center text-gray-900 border-0 ">
     <h2 class="box-border m-0 text-2xl font-semibold leading-tight tracking-tight text-black border-solid sm:text-4xl md:text-5xl">
         Actualités
     </h2>
 
 </div>
+<section class="max-w-5xl p-6 mx-auto bg-white">
+    <form class="flex mb-0 space-x-4" method="POST" action="/actualites">
+        @csrf
+        <div class="flex-1">
+            <label class="sr-only" for="search_input">recherche</label>
+
+            <input
+                class="w-full h-12 text-sm border-black focus:border-transparent focus:ring-black"
+                id="search_input"
+                placeholder="Rechercher une info"
+                type="text"
+            />
+        </div>
+
+
+        <div>
+            <button
+                class="inline-flex items-center justify-center w-12 h-12 text-white bg-black "
+                type="submit"
+            >
+                <span class="sr-only">Submit</span>
+
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                    ></path>
+                </svg>
+            </button>
+        </div>
+    </form>
+</section>
 <section class="h-screen overflow-auto">
 
     <div class="pt-6 pb-12 bg-white">
