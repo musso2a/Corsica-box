@@ -18,45 +18,33 @@
                     <ul class="space-y-10">
                         <li>
                             <details>
-                                <summary class="pb-4 text-xl font-medium border-b-4 border-black">Lorem ipsum dolor sit amet?</summary>
+                                <summary class="pb-4 text-xl font-medium border-b-4 border-black">C'est quoi Corsica Box ?</summary>
                                 <p class="p-4 text-lg border-l-4 border-black">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In ipsa impedit rerum adipisci nihil, ab id dolor
-                                    animi quia nesciunt. Sequi nulla voluptas delectus aspernatur quidem ullam, placeat maxime, nesciunt
-                                    expedita est minima beatae. Qui nostrum nemo sed. Aliquid, est facilis fuga ipsa asperiores amet nihil harum
-                                    impedit modi dolor.
+                                    Fréro fait un effort c'est dans le titre ! En vrai c'est une box mensuelle de produits Corse choisi avec le plus grand soin pour toi :) !
                                 </p>
                             </details>
                         </li>
                         <li>
                             <details>
-                                <summary class="pb-4 text-xl font-medium border-b-4 border-black">Lorem ipsum dolor sit amet?</summary>
+                                <summary class="pb-4 text-xl font-medium border-b-4 border-black">C'est vraiment corse ?</summary>
                                 <p class="p-4 text-lg border-l-4 border-black">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In ipsa impedit rerum adipisci nihil, ab id dolor
-                                    animi quia nesciunt. Sequi nulla voluptas delectus aspernatur quidem ullam, placeat maxime, nesciunt
-                                    expedita est minima beatae. Qui nostrum nemo sed. Aliquid, est facilis fuga ipsa asperiores amet nihil harum
-                                    impedit modi dolor.
+                                    Plus Corse que Corse ! Carrement Nustrale !
                                 </p>
                             </details>
                         </li>
                         <li>
                             <details>
-                                <summary class="pb-4 text-xl font-medium border-b-4 border-black">Lorem ipsum dolor sit amet?</summary>
+                                <summary class="pb-4 text-xl font-medium border-b-4 border-black">Gestion de mon abonnement</summary>
                                 <p class="p-4 text-lg border-l-4 border-black">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In ipsa impedit rerum adipisci nihil, ab id dolor
-                                    animi quia nesciunt. Sequi nulla voluptas delectus aspernatur quidem ullam, placeat maxime, nesciunt
-                                    expedita est minima beatae. Qui nostrum nemo sed. Aliquid, est facilis fuga ipsa asperiores amet nihil harum
-                                    impedit modi dolor.
+                                    Bon une fois que tu as souscrit c'est a vie par contre (le temps que j'arrive a faire la gestion du désabonnement..)
                                 </p>
                             </details>
                         </li>
                         <li>
                             <details>
-                                <summary class="pb-4 text-xl font-medium border-b-4 border-black">Lorem ipsum dolor sit amet?</summary>
+                                <summary class="pb-4 text-xl font-medium border-b-4 border-black">L'envoi ?</summary>
                                 <p class="p-4 text-lg border-l-4 border-black">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In ipsa impedit rerum adipisci nihil, ab id dolor
-                                    animi quia nesciunt. Sequi nulla voluptas delectus aspernatur quidem ullam, placeat maxime, nesciunt
-                                    expedita est minima beatae. Qui nostrum nemo sed. Aliquid, est facilis fuga ipsa asperiores amet nihil harum
-                                    impedit modi dolor.
+                                    Oh la belle boite ! Oh le beau packaging ! Si jamais une commande arrive endommagée ou avec un produits plus bon on te renvoie le produit sans frais supplémentaires !
                                 </p>
                             </details>
                         </li>

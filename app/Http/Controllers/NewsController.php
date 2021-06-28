@@ -11,12 +11,13 @@ use App\Models\Post;
 class NewsController extends Controller
 {
     public function showHome(){
-        $news = DB::table('actualities')->where('publish',1)->limit(3)->get();
+        $news = DB::table('actualities')->where('publish',1)->latest()->limit(3)->get();
         return view('home')->with('news',$news);
     }
 
     public function showNew($id){
         $new = DB::table('actualities')->where('id', $id)->first();
+
         return view('actuality')->with('new', $new);
     }
 
@@ -35,16 +36,16 @@ class NewsController extends Controller
             'short_description' => 'required',
             'description' => 'required',
             'publish' => 'required',
-            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $result = $request->main_photo->storeOnCloudinaryAs('corsicabox');
+//        $result = $request->main_photo->storeOnCloudinaryAs('corsicabox');
 
         Actuality::create([
             'title' => $request->title,
             'short_description' => $request->short_description,
             'description' => $request->description,
-            'img' => $result->getSecurePath(),
+            'img' => "",
             'publish' => $request->publish,
         ]);
 

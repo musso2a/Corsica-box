@@ -1,13 +1,13 @@
 
 
 @font-face {
-    font-family:'archiaregular';
-    src: url('/fonts/Archia-Regular.otf') format('otf');
+    font-family:'regularLine';
+    src: url('/assets/Lack-Line-Regular.woff') format('woff');
     font-style: normal;
     font-weight: normal;
 }
 body {
-    font-family: archiaregular;
+    font-family: regularLine;
 }
 a {
     text-decoration: underline;
